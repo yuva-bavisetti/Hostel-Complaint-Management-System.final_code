@@ -68,7 +68,7 @@ Password: admin123
 
 ## Example demonstration
 
-1. Sign in as Student (`v` / `v`).
+1. Sign in as Student (`IIT2025100` / `100`).
 2. Open **Room → Electrician → Fan**.
 3. Enter location `A-101` and details `Ceiling fan is not working`.
 4. Submit the complaint and note its `CMP-...` ID.

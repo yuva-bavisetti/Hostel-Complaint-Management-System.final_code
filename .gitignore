@@ -1,0 +1,16 @@
+
+# Compiled Java files
+out/
+*.class
+
+# Saved complaint records
+complaints/
+
+# Test-generated data
+test_workspace/
+
+# Local student account data
+student_accounts/
+
+# Backup files
+*.bak

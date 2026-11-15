@@ -1,0 +1,60 @@
+OOM COURSE - SUGGESTED 6 TO 8 MINUTE DEMONSTRATION
+=================================================
+Slide/Section 1: Project title, original source credit, your team's additions.
+Slide/Section 2: Problem: paper/manual complaint handling is difficult to track.
+Slide/Section 3: Actors/use cases:
+   Student: log in, choose complaint, submit, view personal status.
+   Admin: log in, view all, search/filter, update status.
+Slide/Section 4: Class design:
+   Original: User; Complaint extends User; room extends Complaint
+   and implements worker; Washroom extends Complaint, implements worker;
+   Plumber extends Washroom; Caretaker extends Complaint.
+   New: AuthService with Role and Session classes; ComplaintStore with Entry;
+   login_gui; hostelroomwashroom (student GUI); AdminDashboard (admin GUI).
+   Note: the new Entry object is used to represent a complaint stored on disk;
+   the original Complaint class is a separate console-domain class.
+Slide/Section 5: Live student login -> submit Fan complaint A-101 -> show ID.
+Slide/Section 6: Live admin login -> find record -> set Resolved.
+Slide/Section 7: Live student login -> see updated status.
+Slide/Section 8: Tests, limitations (local file storage/hard-coded demo logins), future work.
+
+RECOMMENDED FUNCTIONAL TEST CASES
+---------------------------------
+T01 Student v/v login                         -> Student dashboard
+T02 Invalid student password                 -> Login rejected
+T03 Admin admin/admin123                     -> Admin dashboard
+T04 Student v/v with Admin selected          -> Login rejected
+T05 Student submits Room > Electrician > Fan -> New ID, Pending
+T06 Student submits with blank location      -> Warning, no record
+T07 Student submits without issue/details    -> Warning, no record
+T08 Student v sees their own complaints      -> Record visible
+T09 Student saana sees student v's record    -> Record not visible
+T10 Admin opens all complaints               -> All visible
+T11 Admin search by student v                -> Matching records
+T12 Admin filters Pending                    -> Pending records
+T13 Admin changes Pending to In Progress     -> Updated in table
+T14 Admin changes complaint to Resolved      -> Updated in table
+T15 Student reopens history                  -> Sees Resolved
+T16 Close/restart application                -> Records persist
+T17 Run RUN_TESTS.bat                         -> Automated checks pass
+
+PREPARE FOR VIVA QUESTIONS
+--------------------------
+Q: Why use object-oriented programming?
+A: Classes split responsibilities: users, complaint categories, file storage,
+   authentication and UI. Inheritance/interfaces support reusable behavior.
+Q: Give inheritance examples.
+A: Complaint extends User; room extends Complaint; Plumber extends Washroom.
+Q: What is an interface example?
+A: worker is implemented by room and Washroom.
+Q: Where is complaint data stored?
+A: In individual .properties files in the local complaints directory.
+Q: Can everyone log in as admin?
+A: The app checks admin login separately, but this is a demonstration and
+   not production-grade security because credentials are in source code.
+Q: Can students change status?
+A: No status-edit controls are offered in the student dashboard. Admin has
+   these controls. This is application UI role separation, not a secure server.
+Q: Can it run on other computers?
+A: Yes if Java is installed and the project folder is copied, but data does
+   not automatically synchronize between computers.

@@ -43,11 +43,26 @@ java -cp out complaint_main
 
 ## Demonstration login credentials
 
-| Role | Username | Password |
-| --- | --- | --- |
-| Student | `v` | `v` |
-| Student | `saana` | `saana` |
-| Admin | `admin` | `admin123` |
+## Student Login Credentials
+
+The system supports 101 predefined student accounts.
+
+Username range: IIT2025100 to IIT2025200
+
+Password: Last three digits of the roll number.
+
+Examples:
+
+| Username | Password |
+|---|---|
+| IIT2025100 | 100 |
+| IIT2025150 | 150 |
+| IIT2025200 | 200 |
+
+## Admin Login
+
+Username: admin
+Password: admin123
 
 **Security note:** These are hard-coded classroom-only accounts. Do not use this application with real students' personal information or deploy it as a production system.
 
